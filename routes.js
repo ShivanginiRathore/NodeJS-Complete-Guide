@@ -8,6 +8,7 @@ const requestHandler = (req, res) => {
         res.write('<html>');
         const fileData = fs.readFileSync('./message.txt', 'utf8');
         res.write(fileData);
+        res.write("He");
         res.write('<head><title>Custom Response</title></head>');
         res.write('<body><form action="/mes" method="POST"><input type="text" name="message"></input><button type = "submit">SEND</button></form></body>')
         res.write('</html>')
@@ -30,7 +31,7 @@ const requestHandler = (req, res) => {
             });
         })
     }
-
+    
     res.setHeader('Content-Type','text/html');
     res.write('<html>');
     res.write('<body>Welcome home</body>');
@@ -38,7 +39,7 @@ const requestHandler = (req, res) => {
     res.end();
 };
 
-module.exports = requestHandler;
+// module.exports = requestHandler;
 
 // module.exports = {
 //     handler: requestHandler,
@@ -48,5 +49,5 @@ module.exports = requestHandler;
 // module.exports.handler = requestHandler;
 // module.exports.someText = 'some text';
 
-// exports.handler = requestHandler;
-// exports.someText = 'some text';
+exports.handler = requestHandler;
+exports.someText = 'some text';
